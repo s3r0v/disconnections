@@ -1,6 +1,8 @@
-from lxml import html
+# В скрипте описана вся логика парсера
+from lxml import html as h
 from bs4 import BeautifulSoup
 
 def parse(html):
-    soup = BeautifulSoup(html, features="lxml")
-    film_list = soup.find('td', {'class': 'region'})
+    html = h.fromstring(html) # Преобразует строку в HTML
+    div_node = html.xpath('//div') # div тег
+    return(div_node)
