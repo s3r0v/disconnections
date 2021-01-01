@@ -5,6 +5,9 @@ import time
 start_date = []
 end_date = []
 
+tomorrow = []
+three_days = []
+week = []
 
 def get_date():
     start_date.append(str(datetime.datetime.now().day))
@@ -22,3 +25,18 @@ def get_date():
 
     date = [start_date, end_date]
     return date
+
+def day_add():
+    today = datetime.now()
+    tomorrow = presentday + timedelta(1)
+    tomorrow = tomorrow.strftime['%d','%m','%Y']
+    
+    three_days = presentday + timedelta(3)
+    three_days = three_days.strftime['%d','%m','%Y']
+    
+    week = presentday + timedelta(7)
+    week = week.strftime['%d','%m','%Y']
+    return (tomorrow, three_days, week)
+
+
+    

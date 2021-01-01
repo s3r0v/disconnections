@@ -8,14 +8,14 @@ from req import get_html
 from parser import parse
 from date import get_date
 from db import create_table, send_data_to_db
-from tg import send_data_to_tg
+from tg import send_data_to_tg, check_disconnection
 
 
 
 def main():
     sent_data_tg = [] # Данные об отключениях, которые были отправлены в телеграм
     sent_data_db = [] # Данные об отключениях, которые были отправлены в базу данных 
-    create_table()
+    create_table() # Создаём таблицу отключений в базе данных
 
     while True:
         date = get_date()
@@ -26,6 +26,8 @@ def main():
 
         sent_data_tg = send_data_to_tg(results,sent_data_tg)
         sent_data_db = send_data_to_db(results,sent_data_db)
+
+        
 
         time.sleep(10)
 
